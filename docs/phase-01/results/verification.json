@@ -1,0 +1,41 @@
+{
+  "recorded_at": "2026-11-10T21:21:02.635677+05:30",
+  "python": "3.12.16",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "dependencies": {
+    "cryptography": "50.0.2",
+    "qrcode": "8.2",
+    "Pillow": "13.0.0",
+    "zxing-cpp": "3.1.1",
+    "pytest": "9.2.0",
+    "ruff": "0.17.4",
+    "build": "1.6.1"
+  },
+  "commands": [
+    {
+      "command": "python -m p1qr demo",
+      "returncode": 0,
+      "stdout": "1. Generated and signed a SYNTHETIC / NOT UIDAI credential.\n2. QR image decoded; exact envelope bytes match.\nSignature: VALID\nSigner trust: TRUSTED_SYNTHETIC\nIdentifier binding: SIGNED_CREDENTIAL_ONLY\nAadhaar status: NOT_CHECKED_PHASE_1\n3. Modified payload with unchanged signature: INVALID\n4. Identifier-binding counterexample:\nBoth synthetic signatures accepted: True\nDistinct credential IDs: True\nSame last four digits: True\nDistinct artefact hashes: True\nHash changed on reissuance: True\nLast-four matching is insufficient; real identity binding: UNCONFIRMED.\nAadhaar status: NOT_CHECKED_PHASE_1\n",
+      "stderr": ""
+    },
+    {
+      "command": "python -m pytest -q",
+      "returncode": 0,
+      "stdout": "........................................................................ [ 91%]\n.......                                                                  [100%]\n79 passed in 1.08s\n",
+      "stderr": ""
+    },
+    {
+      "command": "python -m ruff check .",
+      "returncode": 0,
+      "stdout": "All checks passed!\n",
+      "stderr": ""
+    },
+    {
+      "command": "python -m ruff format --check .",
+      "returncode": 0,
+      "stdout": "40 files already formatted\n",
+      "stderr": ""
+    }
+  ],
+  "limitations": "Synthetic only; no real UIDAI conformance or revocation testing."
+}
