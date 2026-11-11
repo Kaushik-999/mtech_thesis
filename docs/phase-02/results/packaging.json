@@ -1,0 +1,71 @@
+{
+  "recorded_at": "2026-11-11T16:12:13.048712+05:30",
+  "wheel": "aadhaar_offline_status_research-0.2.0-py3-none-any.whl",
+  "wheel_sha256": "8a887d11918e78899c564d11cd2f1e010ae85d62cbbe50f4221fbffa8aed61ff",
+  "wheel_python_modules": 38,
+  "archive_scope_valid": true,
+  "local_markdown_links_valid": true,
+  "beginner_api_example": "Executed successfully: NOT_REVOKED_AS_OF_SNAPSHOT",
+  "method": "Wheel installed into temporary target; all imports asserted from target; demos run outside checkout using existing .venv dependencies. Temporary target deleted after checks.",
+  "checks": [
+    {
+      "command": [
+        "uv",
+        "pip",
+        "install",
+        "--python",
+        "/Users/kaushiksarmah999/Desktop/mtech_thesis/.venv/bin/python",
+        "--target",
+        "/var/folders/v2/kvfyz9l95xxfpkxwyhdknf7h0000gn/T/p1qr-wheel-check-48loqtho/installed",
+        "--no-deps",
+        "/Users/kaushiksarmah999/Desktop/mtech_thesis/dist/aadhaar_offline_status_research-0.2.0-py3-none-any.whl"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "Using CPython 3.12.16 interpreter at: /Users/kaushiksarmah999/Desktop/mtech_thesis/.venv/bin/python\nResolved 1 package in 10ms\nPrepared 1 package in 10ms\nInstalled 1 package in 3ms\n + aadhaar-offline-status-research==0.2.0 (from file:///Users/kaushiksarmah999/Desktop/mtech_thesis/dist/aadhaar_offline_status_research-0.2.0-py3-none-any.whl)\n"
+    },
+    {
+      "command": [
+        "/Users/kaushiksarmah999/Desktop/mtech_thesis/.venv/bin/python",
+        "-c",
+        "import p1qr; from pathlib import Path; assert Path(p1qr.__file__).is_relative_to(Path('/var/folders/v2/kvfyz9l95xxfpkxwyhdknf7h0000gn/T/p1qr-wheel-check-48loqtho/installed')); print(p1qr.__version__)"
+      ],
+      "returncode": 0,
+      "stdout": "0.2.0\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/kaushiksarmah999/Desktop/mtech_thesis/.venv/bin/python",
+        "-m",
+        "p1qr",
+        "demo"
+      ],
+      "returncode": 0,
+      "stdout": "1. Generated and signed a SYNTHETIC / NOT UIDAI credential.\n2. QR image decoded; exact envelope bytes match.\nSignature: VALID\nSigner trust: TRUSTED_SYNTHETIC\nIdentifier binding: SIGNED_CREDENTIAL_ONLY\nAadhaar status: NOT_CHECKED_PHASE_1\n3. Modified payload with unchanged signature: INVALID\n4. Identifier-binding counterexample:\nBoth synthetic signatures accepted: True\nDistinct credential IDs: True\nSame last four digits: True\nDistinct artefact hashes: True\nHash changed on reissuance: True\nLast-four matching is insufficient; real identity binding: UNCONFIRMED.\nAadhaar status: NOT_CHECKED_PHASE_1\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/kaushiksarmah999/Desktop/mtech_thesis/.venv/bin/python",
+        "-m",
+        "p1qr",
+        "phase2-demo"
+      ],
+      "returncode": 0,
+      "stdout": "SYNTHETIC / NOT UIDAI \u2014 Research Bitstring Status List \u2014 Not W3C Conformant\nDay 1, initial offline check: NOT_REVOKED_AS_OF_SNAPSHOT\n  Credential signature=VALID; trust=TRUSTED_SYNTHETIC\n  Binding=AUTHENTICATED_MATCH; snapshot=ACCEPTABLE; epoch=1\n  Snapshot Unix seconds: issued=1767225600; expires=1767657600\nDay 2: simulated subject deactivated; both issued credentials revoked internally.\nDay 3, missed update, permissive age policy: NOT_REVOKED_AS_OF_SNAPSHOT\n  Credential signature=VALID; trust=TRUSTED_SYNTHETIC\n  Binding=AUTHENTICATED_MATCH; snapshot=ACCEPTABLE; epoch=1\n  Snapshot Unix seconds: issued=1767225600; expires=1767657600\nDay 3, maximum age one day: STALE_SNAPSHOT\n  Credential signature=VALID; trust=TRUSTED_SYNTHETIC\n  Binding=AUTHENTICATED_MATCH; snapshot=STALE_SNAPSHOT; epoch=1\n  Snapshot Unix seconds: issued=1767225600; expires=1767657600\nDay 4, same original credential after synchronization: REVOKED\n  Credential signature=VALID; trust=TRUSTED_SYNTHETIC\n  Binding=AUTHENTICATED_MATCH; snapshot=ACCEPTABLE; epoch=2\n  Snapshot Unix seconds: issued=1767484800; expires=1767657600\nTampered snapshot: rejected as INVALID_SNAPSHOT_SIGNATURE\nOlder authenticated snapshot: rejected as SNAPSHOT_ROLLBACK\nSame original bytes and valid credential signature; updated synthetic status is REVOKED.\nNo real Aadhaar status, subject identifiers, or private keys are emitted.\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/kaushiksarmah999/Desktop/mtech_thesis/.venv/bin/python",
+        "-m",
+        "p1qr",
+        "status-demo"
+      ],
+      "returncode": 0,
+      "stdout": "SYNTHETIC / NOT UIDAI \u2014 Research Bitstring Status List \u2014 Not W3C Conformant\nDay 1, initial offline check: NOT_REVOKED_AS_OF_SNAPSHOT\n  Credential signature=VALID; trust=TRUSTED_SYNTHETIC\n  Binding=AUTHENTICATED_MATCH; snapshot=ACCEPTABLE; epoch=1\n  Snapshot Unix seconds: issued=1767225600; expires=1767657600\nDay 2: simulated subject deactivated; both issued credentials revoked internally.\nDay 3, missed update, permissive age policy: NOT_REVOKED_AS_OF_SNAPSHOT\n  Credential signature=VALID; trust=TRUSTED_SYNTHETIC\n  Binding=AUTHENTICATED_MATCH; snapshot=ACCEPTABLE; epoch=1\n  Snapshot Unix seconds: issued=1767225600; expires=1767657600\nDay 3, maximum age one day: STALE_SNAPSHOT\n  Credential signature=VALID; trust=TRUSTED_SYNTHETIC\n  Binding=AUTHENTICATED_MATCH; snapshot=STALE_SNAPSHOT; epoch=1\n  Snapshot Unix seconds: issued=1767225600; expires=1767657600\nDay 4, same original credential after synchronization: REVOKED\n  Credential signature=VALID; trust=TRUSTED_SYNTHETIC\n  Binding=AUTHENTICATED_MATCH; snapshot=ACCEPTABLE; epoch=2\n  Snapshot Unix seconds: issued=1767484800; expires=1767657600\nTampered snapshot: rejected as INVALID_SNAPSHOT_SIGNATURE\nOlder authenticated snapshot: rejected as SNAPSHOT_ROLLBACK\nSame original bytes and valid credential signature; updated synthetic status is REVOKED.\nNo real Aadhaar status, subject identifiers, or private keys are emitted.\n",
+      "stderr": ""
+    }
+  ]
+}

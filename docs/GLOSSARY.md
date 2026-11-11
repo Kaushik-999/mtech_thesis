@@ -13,7 +13,7 @@
 | Credential | An issuer's statement about a subject; not necessarily proof of current status |
 | Credential ID | A label for a credential; may change when it is reissued |
 | Decoder | Software that turns QR pixels into message bytes |
-| Deactivation / revocation | An issuer's lifecycle decision; this prototype does not determine either |
+| Deactivation / revocation | An issuer's lifecycle decision; Phase 2 simulates permanent subject deactivation and per-credential revocation, never real UIDAI status |
 | DER / PEM / SPKI | DER is a binary ASN.1 encoding; PEM wraps bytes as text; SubjectPublicKeyInfo describes a public key |
 | Digital signature | A private-key-generated value used to check integrity and key origin of a message |
 | Encoding | Representing data in a format; generally reversible and not secret |
@@ -45,4 +45,33 @@
 | UUIDv4 | A random identifier with 122 random bits; negligible collision probability is not a registry guarantee |
 | Verification | Checking a specified condition; always state whether it means syntax, signature, trust, or status |
 | Virtual environment | A project-specific Python installation/dependency environment |
+| Assigned count | Number of allocated positions signed into a snapshot; unused byte padding is not an assigned credential |
+| Atomic transaction | A group of database changes that commits together or leaves the previous committed state |
+| Binding sidecar | A separate signed assertion supplied with a credential, authenticating its relationship to a list position |
+| Bitmap / bitstring | A packed sequence of bits; this research list uses one bit per credential |
+| Credential-level revocation | Cancelling one issued credential without necessarily deactivating its subject or siblings |
+| Dense allocation | Assigning positions 0, 1, 2, … without gaps or reuse within a list namespace |
+| Epoch | An issuer's increasing snapshot version number; it is not a time source |
+| Equivocation | An issuer authenticates inconsistent statements, such as different snapshots with the same epoch |
+| Expiry | Exclusive deadline after which a snapshot must not be accepted under this policy |
+| Fan-out | Number of credential positions affected when one private subject is deactivated |
+| Full update | Transfer of the complete signed snapshot; it is not a delta |
+| High-water epoch | Highest accepted version retained as local rollback history |
+| Internal subject ID | Fictional issuer-private identity identifier that groups several credentials; absent from public snapshots |
+| LSB0 | Least significant bit is position zero within each byte: index i uses mask 1 shifted by i modulo 8 |
+| Maximum snapshot age | Local policy limiting the interval between signed issued-at and verifier time |
+| NOT_REVOKED_AS_OF_SNAPSHOT | Assigned position is zero in an authentic acceptable snapshot; no guarantee about unseen later events |
+| p95 | A percentile statistic; this benchmark uses nearest rank over seven samples, and lookup samples are batch means |
+| Permanent revocation | This experimental rule allows a bit to change from 0 to 1 only; reactivation is absent |
+| Reissuance | Giving an enabled subject another credential with a fresh UUID and fresh status index |
+| Role trust | Separately authorizing keys for credential, binding and snapshot statements |
+| Rollback | Presenting or restoring an older state after a newer state was accepted |
+| Snapshot | An issuer-signed complete status view with namespace, epoch, time bounds and assigned count |
+| Stable index linkability | Ability to associate presentations that reveal the same list/index pair |
+| STALE_SNAPSHOT | Authenticated evidence fails the selected age or expiry rule, so no accepted bit decision is returned |
+| Status index | Unique integer position allocated to a credential within a named list; not a private subject ID |
+| Synchronization | Receiving and authenticating a newer snapshot and durably updating verifier state |
+| Trusted clock | A time source whose behavior is suitable for a security policy; signatures on timestamps do not supply one |
+| Witness | In future accumulator work, auxiliary proof data for a membership or non-membership statement; not implemented here |
+| Zero knowledge | A cryptographic proof property that does not follow merely from omitting names or using opaque indices |
 

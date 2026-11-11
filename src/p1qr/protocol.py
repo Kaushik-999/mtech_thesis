@@ -22,7 +22,8 @@ def canonical_json(value: dict[str, object]) -> bytes:
 
     Keys are sorted, whitespace omitted, non-ASCII escaped, and NaN forbidden.
     This is a small Python-defined protocol, not general RFC 8785 canonical JSON.
-    Callers must validate the restricted string/null schema before using it.
+    This encoder does not validate a schema. Phase 1 restricts records to strings/null;
+    Phase 2 separately validates flat records with bounded nonnegative integer fields.
     """
     return json.dumps(
         value, sort_keys=True, separators=(",", ":"), ensure_ascii=True, allow_nan=False

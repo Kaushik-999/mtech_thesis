@@ -1,0 +1,101 @@
+{
+  "recorded_at": "2026-11-11T16:11:34.065880+05:30",
+  "python": "3.12.16",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "phase1_historical_files_unchanged": true,
+  "dependencies": {
+    "aadhaar-offline-status-research": "0.2.0",
+    "cryptography": "50.0.2",
+    "qrcode": "8.2",
+    "Pillow": "13.0.0",
+    "zxing-cpp": "3.1.1",
+    "pytest": "9.2.0",
+    "ruff": "0.17.4",
+    "build": "1.6.1"
+  },
+  "checks": [
+    {
+      "command": "python -m pytest -q tests/test_binding.py tests/test_cli.py tests/test_parser.py tests/test_scanner.py tests/test_signature.py tests/test_synthetic.py",
+      "returncode": 0,
+      "stdout": "........................................................................ [ 91%]\n.......                                                                  [100%]\n79 passed in 2.70s\n",
+      "stderr": ""
+    },
+    {
+      "command": "python -m pytest -q tests/phase2",
+      "returncode": 0,
+      "stdout": "........................................................................ [ 80%]\n..................                                                       [100%]\n90 passed in 1.41s\n",
+      "stderr": ""
+    },
+    {
+      "command": "python -m pytest -q",
+      "returncode": 0,
+      "stdout": "........................................................................ [ 42%]\n........................................................................ [ 85%]\n.........................                                                [100%]\n169 passed in 2.79s\n",
+      "stderr": ""
+    },
+    {
+      "command": "python -m p1qr demo",
+      "returncode": 0,
+      "stdout": "1. Generated and signed a SYNTHETIC / NOT UIDAI credential.\n2. QR image decoded; exact envelope bytes match.\nSignature: VALID\nSigner trust: TRUSTED_SYNTHETIC\nIdentifier binding: SIGNED_CREDENTIAL_ONLY\nAadhaar status: NOT_CHECKED_PHASE_1\n3. Modified payload with unchanged signature: INVALID\n4. Identifier-binding counterexample:\nBoth synthetic signatures accepted: True\nDistinct credential IDs: True\nSame last four digits: True\nDistinct artefact hashes: True\nHash changed on reissuance: True\nLast-four matching is insufficient; real identity binding: UNCONFIRMED.\nAadhaar status: NOT_CHECKED_PHASE_1\n",
+      "stderr": ""
+    },
+    {
+      "command": "python -m p1qr phase2-demo",
+      "returncode": 0,
+      "stdout": "SYNTHETIC / NOT UIDAI \u2014 Research Bitstring Status List \u2014 Not W3C Conformant\nDay 1, initial offline check: NOT_REVOKED_AS_OF_SNAPSHOT\n  Credential signature=VALID; trust=TRUSTED_SYNTHETIC\n  Binding=AUTHENTICATED_MATCH; snapshot=ACCEPTABLE; epoch=1\n  Snapshot Unix seconds: issued=1767225600; expires=1767657600\nDay 2: simulated subject deactivated; both issued credentials revoked internally.\nDay 3, missed update, permissive age policy: NOT_REVOKED_AS_OF_SNAPSHOT\n  Credential signature=VALID; trust=TRUSTED_SYNTHETIC\n  Binding=AUTHENTICATED_MATCH; snapshot=ACCEPTABLE; epoch=1\n  Snapshot Unix seconds: issued=1767225600; expires=1767657600\nDay 3, maximum age one day: STALE_SNAPSHOT\n  Credential signature=VALID; trust=TRUSTED_SYNTHETIC\n  Binding=AUTHENTICATED_MATCH; snapshot=STALE_SNAPSHOT; epoch=1\n  Snapshot Unix seconds: issued=1767225600; expires=1767657600\nDay 4, same original credential after synchronization: REVOKED\n  Credential signature=VALID; trust=TRUSTED_SYNTHETIC\n  Binding=AUTHENTICATED_MATCH; snapshot=ACCEPTABLE; epoch=2\n  Snapshot Unix seconds: issued=1767484800; expires=1767657600\nTampered snapshot: rejected as INVALID_SNAPSHOT_SIGNATURE\nOlder authenticated snapshot: rejected as SNAPSHOT_ROLLBACK\nSame original bytes and valid credential signature; updated synthetic status is REVOKED.\nNo real Aadhaar status, subject identifiers, or private keys are emitted.\n",
+      "stderr": ""
+    },
+    {
+      "command": "python -m ruff check .",
+      "returncode": 0,
+      "stdout": "All checks passed!\n",
+      "stderr": ""
+    },
+    {
+      "command": "python -m ruff format --check .",
+      "returncode": 0,
+      "stdout": "73 files already formatted\n",
+      "stderr": ""
+    }
+  ],
+  "source_sha256": {
+    "src/p1qr/__init__.py": "b3956df3ab40fa4a47c7098df622f4a553b3222cba6d6a097e1d1aa9a7403648",
+    "src/p1qr/__main__.py": "2d361e023f4a1ef31c1f4cc101d44c9648721c17894efc15481fb559dce9c18c",
+    "src/p1qr/adapters/__init__.py": "b02cbd479f076e8c1c7b8817a97d91d2c6a89c7e401a4a13a805035ecdd8d4ba",
+    "src/p1qr/adapters/uidai.py": "8192e1e7d3d5d8ed54c830fa55ad96c42ef246d1b1616da1b0a3db883d724805",
+    "src/p1qr/benchmarks/__init__.py": "df0e4119d8fb7a1698f0a6857ea39b88ca1d1a3c24069f2aec0e6792b0e70df2",
+    "src/p1qr/benchmarks/measure.py": "7986261d6f8550c892a04f949f90fc14145552bc79942e243ddb91ba59d42576",
+    "src/p1qr/binding/__init__.py": "0c25abfa3c49959c5c0a09f98f12eaf845c1d94b8156a53c3a073f3a9fad5fbf",
+    "src/p1qr/binding/analysis.py": "9e297bc1b6040088a8fac0da1bf55f1668a1df151b18ca62170110e98f59af19",
+    "src/p1qr/cache/__init__.py": "3721322a49efaf1af335b65ebdbb31a377d387f523c37e67e6042f2811ec1525",
+    "src/p1qr/cache/storage.py": "010ee5a75696fd306f4982e12b56f2c9737a23bc6ad9b1356e657011b21a2890",
+    "src/p1qr/cli.py": "4d36d8f8d140145e83ff2724fa4de8d5f5fd8141737cffc9a41f5cd6a1fe5cf0",
+    "src/p1qr/crypto/__init__.py": "4b71174bd6dfea2914f8f11f760e171f909505bfb6e43eac1b4694eb5c7b5ece",
+    "src/p1qr/crypto/keys.py": "22dda1fa6e960c91920e6301775b6e58554e7d827100838bf36ce33bfb9ffd08",
+    "src/p1qr/crypto/verification.py": "6f9307403963257bff937ce144dfc2205c10cacc3b40ed55b560ac624435a1d1",
+    "src/p1qr/errors.py": "0f67de8ea2bb55ef1926a68d5513de5bed340cb7feff50d61877e6090c4379a0",
+    "src/p1qr/issuer_registry/__init__.py": "23bb3523ca42a92fb68d4c09a5169ab9c3ac269fb5420139d79432d9f4662095",
+    "src/p1qr/issuer_registry/registry.py": "0cd759307f54aca0eb935739ea92d198f6ca60168c370746c4fe619ce83f0505",
+    "src/p1qr/models.py": "dc3f24eb882a9925b5a4cf436cc441a02ae455971a897769cc3960578a5a4b55",
+    "src/p1qr/offline/__init__.py": "909009a94977e011fa8818d3337b4fd329c6f8e11a1439a10e0dfc60c6f5536b",
+    "src/p1qr/offline/demo.py": "02735d128a01ca96b49d942a7d8f50e3b63913c81262ffe437be479da9ae63b2",
+    "src/p1qr/offline/verifier.py": "e2a411735633ec0c7b0ba9b81850460ccf984082985a6390d017f3960c6e500a",
+    "src/p1qr/parser/__init__.py": "098ee36cb08b65da3666e156c5cff755f4020928bf1d473df00812db2eb21abd",
+    "src/p1qr/parser/payload.py": "da9da251acd575dbecf0c398c4068d33a36addd94b20e1900ee0ad560caaa48c",
+    "src/p1qr/phase2_cli.py": "fc8500a89176ad1512141b8c3a20eb677f36b976107628224abf72790a91e1fa",
+    "src/p1qr/protocol.py": "5a181158585ced3b6984f556a490b8679c53e9585a7ad777f40e48926ef4fed9",
+    "src/p1qr/scanner/__init__.py": "255027bfea3364bcd19a70303e70d76701f3935a6ec852e47252163f232f805b",
+    "src/p1qr/scanner/reader.py": "1f73d22c2fdf63cf799478a8ef401e3db8a67833fa75f7be312ec1ffeec36d3d",
+    "src/p1qr/scanner/worker.py": "e2db7c7a48709264c1623c886244052abb4e32aa640388d007bf0b55c7d7f44f",
+    "src/p1qr/status/__init__.py": "c62649c06071b2cb147e9e119d789c331cd8146db663583f5fc8864c0f6b5edf",
+    "src/p1qr/status/bitstring.py": "64a4a003550126d5dc7f297d40fb6afe016ad8e35e002935832081eeac7add1c",
+    "src/p1qr/status/encoding.py": "b7a59a3b880744c9c0c0f6ca88de1b91fd8a63991f3c4fa17ca977a6e489b3cf",
+    "src/p1qr/status/errors.py": "95a6aa2e3d096f12438fab19a5210d9b1952b5d6d4d68274b8c4f92217233a74",
+    "src/p1qr/status/snapshot.py": "9d234b388e44c10861bb27adbb1b3afdfad49013de157c71a27ac891d85062bb",
+    "src/p1qr/status/trust.py": "f0975eca9b23fe81540039d90b4a4fcab7cf403fac579fdd5928cd7a46580a77",
+    "src/p1qr/status_binding/__init__.py": "7682dac9ea9aff431d79e013874c1d215bd99605188330bae217f985daac1f7e",
+    "src/p1qr/status_binding/assertion.py": "651738b3100fb1dbad9afc3c8b66f2b22aefa6c1b206afdc51849c5b6fc08d8c",
+    "src/p1qr/synthetic/__init__.py": "38a10bcc3ffb406fe9e924179654c6600e2c9290094327ac363aaf6ab312d909",
+    "src/p1qr/synthetic/issuer.py": "1ca87fa5441a956058eacdaa347a0417b45f8030550b4296acb3f96941b12b5c"
+  },
+  "scope": "Simulated issuer; no real UIDAI compatibility or revocation claim."
+}

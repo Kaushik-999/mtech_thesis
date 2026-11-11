@@ -1,0 +1,5 @@
+assigned_entries,revoked_entries,raw_bitmap_bytes,encoded_snapshot_bytes,cache_database_bytes,validation_python_peak_bytes,snapshot_signing_ms_median,snapshot_signing_ms_p95,snapshot_validation_ms_median,snapshot_validation_ms_p95,cache_reload_validation_ms_median,cache_reload_validation_ms_p95,cached_lookup_batch_ns_per_op_median,cached_lookup_batch_ns_per_op_p95
+10000,100,1250,3149,8192,14424,0.574916,0.636709,0.133667,0.147791,0.250583,0.277959,119.9375,129.3209
+100000,1000,12500,23149,28672,98283,0.867708,0.928375,0.747291,0.7645,0.892584,0.91225,118.8792,127.4458
+1000000,10000,125000,223149,229376,935636,3.935875,3.967333,6.916417,7.045375,7.171208,7.246875,124.9916,137.7125
+10000000,100000,1250000,2223153,2232320,9310420,34.797667,35.206291,69.426208,70.150792,70.334375,70.60375,121.2666,125.3666

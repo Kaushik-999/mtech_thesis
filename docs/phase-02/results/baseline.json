@@ -1,0 +1,26 @@
+{
+  "recorded_at": "2026-11-11T13:27:54.003212+05:30",
+  "command": "python -m pytest -q",
+  "returncode": 0,
+  "stdout": "........................................................................ [ 91%]\n.......                                                                  [100%]\n79 passed in 1.10s\n",
+  "stderr": "",
+  "python": "3.12.16",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "phase1_sha256": {
+    "docs/phase-01/01_beginner_guide.md": "8d0f034a21ab442c718cee174c43099f3277b9eaedaa6c4e53cb33890fa8ce07",
+    "docs/phase-01/02_technical_design.md": "7997e31ce992ffba1a73021131272839cce68593c40cf4f16df6afe11c388dc4",
+    "docs/phase-01/03_code_walkthrough.md": "b2cd12270572ff8703d4abbe81029723e6e2903721bc8230119b5716b8c41346",
+    "docs/phase-01/04_testing_and_results.md": "5475fb2096f6208070bee647705d12ddec33fd0eff26fc0541b09b26a2969af3",
+    "docs/phase-01/05_ppt_content.md": "b280d6afba089cb192103c943730c199c8cd7c0511e23ad770215cafb92f85ae",
+    "docs/phase-01/06_research_findings.md": "5986508f4695df8eaa325e049ebb23e8ee6ca92ab21e9c3bac0878b8c64b816a",
+    "docs/phase-01/07_sources_and_assumptions.md": "e83f1c22610ebf667ab6f8d52bd099310174ad39d1466a54d6c128f2d775b1a7",
+    "docs/phase-01/results/verification.json": "ae954b9e55975c238906b758d27f0349973a3da76593826120af503f3350849d",
+    "tests/conftest.py": "0d391b3697619e1ce6bd972ef4436b7f69ee74d4ff585e77ae8057151edbc61d",
+    "tests/test_binding.py": "defd61221e18b62bb2834aeb4b2ec52908a230db281260ae466b35088d7e1534",
+    "tests/test_cli.py": "4b526a9ce73afb090fd959ed9c45bbd4bc6c74258f74857436dad884e711536b",
+    "tests/test_parser.py": "d0af93499c315ccaffe8b55ae6036df679efe6446aa8d431aed042811e37b00a",
+    "tests/test_scanner.py": "71b3ba4e0e8eb03572834b2fe468f2edd52258b991af3a6cd8200df2800321f8",
+    "tests/test_signature.py": "375260a20c591903ab6c09617f6a4e849bcc13566ce119effc4b826e66e5b3ac",
+    "tests/test_synthetic.py": "614a77b66c85fa2edede4f1245b165b5337b94a732a983839140a25efd949315"
+  }
+}

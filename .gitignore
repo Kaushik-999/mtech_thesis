@@ -16,4 +16,7 @@ private_inputs/
 *.p12
 *.pfx
 .env
+phase2_output/
+phase2_benchmarks/
+.p1qr-dev/
 

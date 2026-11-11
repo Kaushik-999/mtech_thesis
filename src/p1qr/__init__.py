@@ -1,3 +1,3 @@
-"""Phase 1 synthetic verification foundation; this package does not check Aadhaar status."""
+"""Synthetic credential and cached-status research; no real Aadhaar status checking."""
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"

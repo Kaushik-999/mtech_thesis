@@ -13,6 +13,7 @@ from p1qr.crypto.verification import verify_credential
 from p1qr.errors import ErrorCode, P1QRError
 from p1qr.models import SignatureState, VerificationResult
 from p1qr.parser.payload import parse_payload
+from p1qr.phase2_cli import add_commands, run_command
 from p1qr.protocol import MAX_KEY_BYTES, canonical_json
 from p1qr.scanner.reader import decode_qr_image, read_bounded_file
 from p1qr.synthetic.issuer import create_record, export_bundle, sign_record
@@ -77,7 +78,8 @@ def _demo_in_directory(output: Path) -> int:
 def build_parser() -> argparse.ArgumentParser:
     """Return the CLI argument parser with mutually exclusive payload/image input paths."""
     parser = argparse.ArgumentParser(
-        prog="p1qr", description="Phase 1 synthetic QR research. Never checks real Aadhaar status."
+        prog="p1qr",
+        description="Synthetic QR and offline status research. Never checks real Aadhaar status.",
     )
     commands = parser.add_subparsers(dest="command", required=True)
     demo = commands.add_parser(
@@ -109,6 +111,7 @@ def build_parser() -> argparse.ArgumentParser:
     commands.add_parser(
         "analyze-binding", help="Demonstrate suffix collision and artefact instability."
     )
+    add_commands(commands)
     return parser
 
 
@@ -120,6 +123,8 @@ def main(argv: list[str] | None = None) -> int:
     Neither exit 0 nor any output claims current Aadhaar status.
     """
     args = build_parser().parse_args(argv)
+    if args.command in ("phase2-demo", "status-demo", "benchmark-status"):
+        return run_command(args)
     try:
         if args.command == "demo":
             if args.output is not None:

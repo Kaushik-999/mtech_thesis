@@ -1,0 +1,374 @@
+{
+  "protocol": "Research Bitstring Status List \u2014 Not W3C Conformant",
+  "recorded_at": "2026-11-11T15:49:03.236758+05:30",
+  "command": "python -m p1qr benchmark-status --output docs/phase-02/results/benchmarks.json --sizes 10000 100000 1000000 10000000 --repetitions 7 --queries 10000 --seed 20261111",
+  "environment": {
+    "python": "3.12.16",
+    "os": "macOS-26.6.2-arm64-arm-64bit",
+    "hardware": "Apple M2",
+    "logical_cpus": 8,
+    "dependencies": {
+      "cryptography": "50.0.2",
+      "Pillow": "13.0.0",
+      "qrcode": "8.2",
+      "zxing-cpp": "3.1.1",
+      "pytest": "9.2.0",
+      "ruff": "0.17.4"
+    }
+  },
+  "methodology": "perf_counter_ns; warm-up excluded; median and nearest-rank p95; lookup statistics are per-batch mean ns/op, not per-request tail latency; tracemalloc separately measures validation Python allocations; no compression/deltas.",
+  "process_high_water_rss_bytes": 148520960,
+  "populations": [
+    {
+      "assigned_entries": 10000,
+      "revoked_entries": 100,
+      "rate": 0.01,
+      "seed": 20261111,
+      "repetitions": 7,
+      "queries_per_batch": 10000,
+      "raw_bitmap_bytes": 1250,
+      "encoded_snapshot_bytes": 3149,
+      "full_update_bandwidth_bytes": 3149,
+      "cache_database_bytes": 8192,
+      "compressed_snapshot_bytes": null,
+      "compression": "NOT_IMPLEMENTED",
+      "snapshot_signing_ms": {
+        "median": 0.574916,
+        "p95": 0.636709
+      },
+      "snapshot_validation_ms": {
+        "median": 0.133667,
+        "p95": 0.147791
+      },
+      "cache_reload_validation_ms": {
+        "median": 0.250583,
+        "p95": 0.277959
+      },
+      "cached_lookup_batch_ns_per_op": {
+        "median": 119.9375,
+        "p95": 129.3209
+      },
+      "validation_python_peak_bytes": 14424,
+      "oracle_hits_per_batch": 92,
+      "samples": {
+        "signing_ms": [
+          0.574916,
+          0.563875,
+          0.56875,
+          0.603,
+          0.636709,
+          0.57975,
+          0.564708
+        ],
+        "validation_ms": [
+          0.145667,
+          0.135375,
+          0.133667,
+          0.147791,
+          0.132542,
+          0.131708,
+          0.132125
+        ],
+        "cache_load_ms": [
+          0.277959,
+          0.260334,
+          0.259333,
+          0.250583,
+          0.248333,
+          0.24325,
+          0.242209
+        ],
+        "lookup_batch_ns_per_op": [
+          119.6958,
+          120.4333,
+          119.2042,
+          119.1458,
+          119.9375,
+          120.6375,
+          129.3209
+        ]
+      }
+    },
+    {
+      "assigned_entries": 100000,
+      "revoked_entries": 1000,
+      "rate": 0.01,
+      "seed": 20261111,
+      "repetitions": 7,
+      "queries_per_batch": 10000,
+      "raw_bitmap_bytes": 12500,
+      "encoded_snapshot_bytes": 23149,
+      "full_update_bandwidth_bytes": 23149,
+      "cache_database_bytes": 28672,
+      "compressed_snapshot_bytes": null,
+      "compression": "NOT_IMPLEMENTED",
+      "snapshot_signing_ms": {
+        "median": 0.867708,
+        "p95": 0.928375
+      },
+      "snapshot_validation_ms": {
+        "median": 0.747291,
+        "p95": 0.7645
+      },
+      "cache_reload_validation_ms": {
+        "median": 0.892584,
+        "p95": 0.91225
+      },
+      "cached_lookup_batch_ns_per_op": {
+        "median": 118.8792,
+        "p95": 127.4458
+      },
+      "validation_python_peak_bytes": 98283,
+      "oracle_hits_per_batch": 108,
+      "samples": {
+        "signing_ms": [
+          0.877542,
+          0.861875,
+          0.867708,
+          0.862584,
+          0.862625,
+          0.869833,
+          0.928375
+        ],
+        "validation_ms": [
+          0.7455,
+          0.745542,
+          0.747291,
+          0.742708,
+          0.762875,
+          0.7645,
+          0.762083
+        ],
+        "cache_load_ms": [
+          0.912167,
+          0.870291,
+          0.892584,
+          0.875917,
+          0.875584,
+          0.900583,
+          0.91225
+        ],
+        "lookup_batch_ns_per_op": [
+          118.5417,
+          118.3125,
+          118.1625,
+          127.4458,
+          119.025,
+          123.15,
+          118.8792
+        ]
+      }
+    },
+    {
+      "assigned_entries": 1000000,
+      "revoked_entries": 10000,
+      "rate": 0.01,
+      "seed": 20261111,
+      "repetitions": 7,
+      "queries_per_batch": 10000,
+      "raw_bitmap_bytes": 125000,
+      "encoded_snapshot_bytes": 223149,
+      "full_update_bandwidth_bytes": 223149,
+      "cache_database_bytes": 229376,
+      "compressed_snapshot_bytes": null,
+      "compression": "NOT_IMPLEMENTED",
+      "snapshot_signing_ms": {
+        "median": 3.935875,
+        "p95": 3.967333
+      },
+      "snapshot_validation_ms": {
+        "median": 6.916417,
+        "p95": 7.045375
+      },
+      "cache_reload_validation_ms": {
+        "median": 7.171208,
+        "p95": 7.246875
+      },
+      "cached_lookup_batch_ns_per_op": {
+        "median": 124.9916,
+        "p95": 137.7125
+      },
+      "validation_python_peak_bytes": 935636,
+      "oracle_hits_per_batch": 89,
+      "samples": {
+        "signing_ms": [
+          3.963208,
+          3.870709,
+          3.895333,
+          3.935875,
+          3.967333,
+          3.931584,
+          3.9445
+        ],
+        "validation_ms": [
+          6.905667,
+          6.875625,
+          7.029875,
+          7.032917,
+          7.045375,
+          6.901375,
+          6.916417
+        ],
+        "cache_load_ms": [
+          7.084125,
+          7.19775,
+          7.156084,
+          7.246875,
+          7.171208,
+          7.178167,
+          7.122875
+        ],
+        "lookup_batch_ns_per_op": [
+          124.7541,
+          124.25,
+          124.9791,
+          124.9916,
+          136.8625,
+          137.7125,
+          125.2291
+        ]
+      }
+    },
+    {
+      "assigned_entries": 10000000,
+      "revoked_entries": 100000,
+      "rate": 0.01,
+      "seed": 20261111,
+      "repetitions": 7,
+      "queries_per_batch": 10000,
+      "raw_bitmap_bytes": 1250000,
+      "encoded_snapshot_bytes": 2223153,
+      "full_update_bandwidth_bytes": 2223153,
+      "cache_database_bytes": 2232320,
+      "compressed_snapshot_bytes": null,
+      "compression": "NOT_IMPLEMENTED",
+      "snapshot_signing_ms": {
+        "median": 34.797667,
+        "p95": 35.206291
+      },
+      "snapshot_validation_ms": {
+        "median": 69.426208,
+        "p95": 70.150792
+      },
+      "cache_reload_validation_ms": {
+        "median": 70.334375,
+        "p95": 70.60375
+      },
+      "cached_lookup_batch_ns_per_op": {
+        "median": 121.2666,
+        "p95": 125.3666
+      },
+      "validation_python_peak_bytes": 9310420,
+      "oracle_hits_per_batch": 99,
+      "samples": {
+        "signing_ms": [
+          35.206291,
+          34.797667,
+          34.796083,
+          34.9355,
+          34.746417,
+          35.126417,
+          34.369125
+        ],
+        "validation_ms": [
+          69.058709,
+          69.063666,
+          69.171375,
+          69.499917,
+          70.150792,
+          69.426208,
+          69.464291
+        ],
+        "cache_load_ms": [
+          70.264458,
+          70.334375,
+          70.097291,
+          70.536792,
+          70.593709,
+          70.325875,
+          70.60375
+        ],
+        "lookup_batch_ns_per_op": [
+          125.3666,
+          120.9709,
+          118.1875,
+          121.3292,
+          121.2666,
+          121.325,
+          121.225
+        ]
+      }
+    }
+  ],
+  "small_registry": {
+    "repetitions": 7,
+    "issuance_with_binding_ms": {
+      "median": 1.154125,
+      "p95": 1.170209
+    },
+    "single_credential_revocation_ms": {
+      "median": 0.000541,
+      "p95": 0.000833
+    },
+    "subject_deactivation_ms_by_credential_count": {
+      "1": {
+        "median": 0.001583,
+        "p95": 0.002333,
+        "samples_ms": [
+          0.002333,
+          0.002,
+          0.001584,
+          0.001583,
+          0.0015,
+          0.001583,
+          0.001334
+        ]
+      },
+      "5": {
+        "median": 0.003,
+        "p95": 0.004125,
+        "samples_ms": [
+          0.002875,
+          0.004125,
+          0.003166,
+          0.003084,
+          0.002833,
+          0.002833,
+          0.003
+        ]
+      },
+      "25": {
+        "median": 0.007625,
+        "p95": 0.010792,
+        "samples_ms": [
+          0.0085,
+          0.007709,
+          0.007334,
+          0.010792,
+          0.007416,
+          0.0075,
+          0.007625
+        ]
+      }
+    },
+    "issue_samples_ms": [
+      1.165667,
+      1.170209,
+      1.129959,
+      1.154125,
+      1.155542,
+      1.132041,
+      1.136416
+    ],
+    "revoke_samples_ms": [
+      0.00075,
+      0.000833,
+      0.000625,
+      0.0005,
+      0.000541,
+      0.0005,
+      0.000417
+    ]
+  },
+  "limitations": "Bulk bitmaps simulate assigned slots; no millions-of-subjects registry is allocated. RSS is process-wide high-water, not per-size peak. Synthetic, one host, no UIDAI checks."
+}

@@ -4,8 +4,8 @@ build-backend = "hatchling.build"
 
 [project]
 name = "aadhaar-offline-status-research"
-version = "0.1.0"
-description = "Phase 1: synthetic signed QR verification and Aadhaar identifier-binding research"
+version = "0.2.0"
+description = "Synthetic signed QR verification, issuer binding and cached offline status research"
 readme = "README.md"
 requires-python = ">=3.12,<3.15"
 dependencies = ["cryptography>=44,<52", "qrcode>=8,<9", "Pillow>=11,<14"]
